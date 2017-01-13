@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>fr.aviva.arender</groupId>
+    <artifactId>arender-aviva</artifactId>
+    <version>2017.1.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>Arender - Aviva connector</name>
+
+    <properties>
+        <arender.version>3.1.2</arender.version>
+        <arender.api.version>3.1.0-3</arender.api.version>
+        <spring.arender.version>4.1.6.RELEASE</spring.arender.version>
+        <spring.security.arender.version>4.0.1.RELEASE</spring.security.arender.version>
+        <servlet-api.version>2.5</servlet-api.version>
+        <ojdbc6.version>11.2.0.3</ojdbc6.version>
+        <slf4j-log4j12.version>1.6.1</slf4j-log4j12.version>
+    </properties>
+
+    <dependencies>
+
+        <!-- ***** ARender ***** -->
+        <!-- ** ARender API **-->
+        <dependency>
+            <groupId>com.arondor.arender</groupId>
+            <artifactId>arondor-arender-client-api</artifactId>
+            <version>${arender.api.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.arondor.arender</groupId>
+            <artifactId>arondor-arender-annotation-api</artifactId>
+            <version>${arender.api.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.arondor.arender</groupId>
+            <artifactId>arondor-arender-rendition-api</artifactId>
+            <version>${arender.api.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- ** ARender CORE **-->
+        <dependency>
+            <groupId>com.arondor.arender</groupId>
+            <artifactId>arondor-arender-common</artifactId>
+            <version>${arender.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.arondor.arender</groupId>
+            <artifactId>arondor-arender-xfdf-annotation</artifactId>
+            <version>${arender.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${spring.security.arender.version}</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>${servlet-api.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.oracle.ext</groupId>
+            <artifactId>ojdbc6</artifactId>
+            <version>${ojdbc6.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j-log4j12.version}</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+</project>
