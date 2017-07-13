@@ -4,22 +4,17 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+	<parent>
+	    <groupId>fr.aviva.arender</groupId>
+	    <artifactId>arender-aviva</artifactId>
+	    <version>2017.1.0.1-SNAPSHOT</version>
+	</parent>
+
     <groupId>fr.aviva.arender</groupId>
-    <artifactId>arender-aviva</artifactId>
-    <version>2017.1.0.1-SNAPSHOT</version>
+    <artifactId>arender-aviva-connector</artifactId>
     <packaging>jar</packaging>
 
     <name>Arender - Aviva connector</name>
-
-    <properties>
-        <arender.version>3.1.2</arender.version>
-        <arender.api.version>3.1.0-3</arender.api.version>
-        <spring.arender.version>4.1.6.RELEASE</spring.arender.version>
-        <spring.security.arender.version>4.0.1.RELEASE</spring.security.arender.version>
-        <servlet-api.version>2.5</servlet-api.version>
-        <ojdbc6.version>11.2.0.3</ojdbc6.version>
-        <slf4j-log4j12.version>1.6.1</slf4j-log4j12.version>
-    </properties>
 
     <dependencies>
 
