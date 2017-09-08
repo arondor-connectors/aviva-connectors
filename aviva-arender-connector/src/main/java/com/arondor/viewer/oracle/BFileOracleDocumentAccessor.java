@@ -97,19 +97,28 @@ public class BFileOracleDocumentAccessor implements DocumentAccessor, Serializab
         }
         finally
         {
-            if (bFile != null)
+            try 
             {
-                try
-                {
-                    bFile.closeFile();
-                }
-                catch (SQLException e)
-                {
-                    LOGGER.error("Could not close BFile corresponding to F_DocNumber : " + oracleDocumentId);
-                }
-                AbstractDAO.close(preparedStatement);
-                AbstractDAO.close(connection);
+            	if (bFile != null)
+            	{
+            		try
+            		{
+            			bFile.closeFile();
+            		}
+            		catch (SQLException e)
+            		{
+            			LOGGER.error("Could not close BFile corresponding to F_DocNumber : " + oracleDocumentId);
+            		}
+            		AbstractDAO.close(preparedStatement);
+            	}
             }
+            finally
+            {            	
+            	if (connection != null)
+            		AbstractDAO.close(connection);
+            }
+            
+            
         }
     }
 
