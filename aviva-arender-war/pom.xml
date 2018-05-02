@@ -6,11 +6,12 @@
 	<parent>
 	    <groupId>fr.aviva.arender</groupId>
 	    <artifactId>arender-aviva</artifactId>
-	    <version>2017.1.0.1-SNAPSHOT</version>
+    	<version>2018.5.2.1-SNAPSHOT</version>
 	</parent>
 	
     <groupId>fr.aviva.arender</groupId>
     <artifactId>arender-aviva-war</artifactId>
+    <version>3.1.10-1</version>
 
 	<packaging>war</packaging>
 	<name>ARender HMI for Aviva</name>
@@ -21,7 +22,7 @@
 		<!-- Base depedency : HMI -->
 		<dependency>
 			<groupId>com.arondor.arender</groupId>
-			<artifactId>arondor-arender-hmi</artifactId>
+			<artifactId>arondor-arender-hmi-jdbc</artifactId>
 			<version>${arender.version}</version>
 			<type>war</type>
 		</dependency>
@@ -30,7 +31,7 @@
 		<dependency>
 		    <groupId>fr.aviva.arender</groupId>
 		    <artifactId>arender-aviva-connector</artifactId>
-		    <version>2017.1.0.1-SNAPSHOT</version>
+		    <version>${arender-aviva-connector}</version>
 			<type>jar</type>
 		</dependency>
 		
@@ -74,14 +75,17 @@
 					<overlays>
 						<overlay>
 							<groupId>com.arondor.arender</groupId>
-							<artifactId>arondor-arender-hmi</artifactId>
+							<artifactId>arondor-arender-hmi-jdbc</artifactId>
 							<excludes>
 							<!-- 
 								<exclude>WEB-INF/classes/arender.xml</exclude>
 								<exclude>META-INF/MANIFEST.MF</exclude>
 								<exclude>WEB-INF/web.xml</exclude>
 								<exclude>WEB-INF/web-with-security.xml</exclude>
-							 -->								
+							 -->	
+							 	<exclude>WEB-INF/classes/arender.properties</exclude>	
+							 	<exclude>WEB-INF/classes/arender-server-custom-jdbc.properties</exclude>
+								<exclude>WEB-INF/classes/arender-custom-server-integration.xml</exclude>				
 							</excludes>
 						</overlay>
 					</overlays>
@@ -120,8 +124,11 @@
 						<fileset>
 							<directory>war</directory>
 							<excludes>
-								<exclude>WEB-INF/classes/arender.xml</exclude>
-								<exclude>WEB-INF/web.xml</exclude>
+								<!-- exclude>WEB-INF/classes/arender.xml</exclude-->
+								<exclude>WEB-INF/classes/arender-custom-server-integration.xml</exclude>
+								<exclude>WEB-INF/classes/arender.properties</exclude>
+								<exclude>WEB-INF/classes/arender-server-custom-jdbc.properties</exclude>
+								<!-- exclude>WEB-INF/web.xml</exclude-->
 								<exclude>.svn</exclude>
 								<exclude>.svn/*</exclude>
 								<exclude>.svn/**</exclude>
