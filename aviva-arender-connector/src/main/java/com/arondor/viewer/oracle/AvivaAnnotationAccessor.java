@@ -45,19 +45,20 @@ public class AvivaAnnotationAccessor extends XFDFAnnotationAccessor
     public void create(List<Annotation> annotations) throws AnnotationsNotSupportedException,
             InvalidAnnotationFormatException, AnnotationCredentialsException, AnnotationNotAvailableException
     {
-        LOGGER.info("Creatings annotations: " + annotations);
+        LOGGER.info("Creatings annotations...");
+        LOGGER.debug("Creatings annotations: " + annotations);
         super.create(annotations);
         LOGGER.info(annotations.size() + " have been created");
     }
 
     public synchronized List<Annotation> get() throws AnnotationsNotSupportedException, InvalidAnnotationFormatException
     {
-    	LOGGER.info("Getting annotations ...");
         String user = getUsername();
     	LOGGER.info("Getting annotations with user=" + user);
         List<Annotation> annotations = super.get();
         boolean isAdmin = isAdmin(user);
         LOGGER.info("Current user " + user + " isAdmin=" + isAdmin);
+        
         for (Annotation annotation : annotations)
         {
             if (!isOwner(annotation, user) && !isAdmin)
@@ -73,7 +74,7 @@ public class AvivaAnnotationAccessor extends XFDFAnnotationAccessor
                 LOGGER.info("User is either annotation owner or admin");
             }
         }
-        LOGGER.info("Returning annotations: " + annotations);
+        LOGGER.debug("Returning annotations: " + annotations);
         return annotations;
     }
 
@@ -84,7 +85,7 @@ public class AvivaAnnotationAccessor extends XFDFAnnotationAccessor
 
     private boolean isAdmin(String user)
     {
-        LOGGER.info("Determining if user '" + user + "' is admin or not");
+        LOGGER.info("Determining if user " + user + " is admin or not");
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -107,7 +108,7 @@ public class AvivaAnnotationAccessor extends XFDFAnnotationAccessor
         }
         catch (SQLException e)
         {
-            LOGGER.error("Cannot determine if the user " + user + " is admin or not", e);
+            LOGGER.error("Cannot determine if user " + user + " is admin or not", e);
         }
         finally
         {

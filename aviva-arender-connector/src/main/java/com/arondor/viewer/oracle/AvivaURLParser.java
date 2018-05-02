@@ -36,13 +36,11 @@ public class AvivaURLParser implements DocumentServiceURLParser
 
     private String query;
 
-    @Override
     public boolean canParse(DocumentService arg0, ServletContext arg1, HttpServletRequest request)
     {
         return request.getParameter(ORACLE_ID_KEY) != null;
     }
 
-    @Override
     public DocumentId parse(DocumentService documentService, ServletContext context, HttpServletRequest request)
             throws DocumentNotAvailableException, DocumentFormatNotSupportedException
     {

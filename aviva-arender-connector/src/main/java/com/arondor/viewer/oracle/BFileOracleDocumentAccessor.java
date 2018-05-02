@@ -52,14 +52,12 @@ public class BFileOracleDocumentAccessor implements DocumentAccessor, Serializab
         this.uuid = uuid;
     }
 
-    @Override
     public InputStream getInputStream() throws IOException
     {
 
         return new ByteArrayInputStream(toByteArray());
     }
 
-    @Override
     public byte[] toByteArray() throws IOException
     {
         Connection connection = null;
@@ -131,25 +129,21 @@ public class BFileOracleDocumentAccessor implements DocumentAccessor, Serializab
         }
     }
 
-    @Override
     public DocumentAccessor asSerializableDocumentAccessor() throws IOException
     {
         return new DocumentAccessorByteArray(getUUID(), getInputStream());
     }
 
-    @Override
     public DocumentMetadata getDocumentMetadata()
     {
         return documentMetadata;
     }
 
-    @Override
     public String getDocumentTitle()
     {
         return title;
     }
 
-    @Override
     public void setDocumentTitle(String title)
     {
         this.title = title;
@@ -160,31 +154,26 @@ public class BFileOracleDocumentAccessor implements DocumentAccessor, Serializab
         this.query = query;
     }
 
-    @Override
     public DocumentId getUUID()
     {
         return uuid;
     }
 
-    @Override
     public AnnotationAccessor getAnnotationAccessor() throws AnnotationsNotSupportedException
     {
         return annotationAccessor;
     }
 
-    @Override
     public void setAnnotationAccessor(AnnotationAccessor annotationAccessor) throws AnnotationsNotSupportedException
     {
         this.annotationAccessor = annotationAccessor;
     }
 
-    @Override
     public String getMimeType() throws IOException
     {
         return null;
     }
 
-    @Override
     public String getPath() throws IOException
     {
         return null;
